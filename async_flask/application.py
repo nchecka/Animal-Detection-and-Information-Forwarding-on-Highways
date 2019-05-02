@@ -26,6 +26,7 @@ from time import sleep
 from threading import Thread, Event
 import socket
 import sys
+import time
 
 __author__ = 'slynn'
 
@@ -65,7 +66,8 @@ class RandomThread(Thread):
             sys.stderr.write('\nreceived %s bytes from %s' % (len(data), address))
             #print >>sys.stderr, data
             sys.stderr.write('\n%s\n' % data)
-            number = 1
+            number = time.asctime( time.localtime(time.time()) )
+            sys.stderr.write('\nNumber: %s\n' % number)
             socketio.emit('newnumber', {'number': number}, namespace='/test')
             sleep(self.delay)
 

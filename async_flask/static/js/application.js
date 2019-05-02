@@ -14,7 +14,7 @@ $(document).ready(function(){
         numbers_received.push(msg.number);
         numbers_string = '';
         for (var i = 0; i < numbers_received.length; i++){
-            numbers_string = numbers_string + '<p>' + numbers_received[i].toString() + '</p>';
+            numbers_string = numbers_string + '<p>' + 'Detected:' + numbers_received[i].toString() + '</p>';
         }
         $('#log').html(numbers_string);
     });
